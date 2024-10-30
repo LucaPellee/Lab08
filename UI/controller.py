@@ -11,10 +11,15 @@ class Controller:
         self._model = model
         self._idMap = {}
         self.fillIDMap()
+        self._maxY = None
+        self._maxH = None
 
     def handleWorstCase(self, e):
-        # TO FILL
-        pass
+        self._maxY = self._view._txtYears.value
+        self._maxH = self._view._txtHours.value
+        self._nercSel = self._idMap[self._view._ddNerc.value]
+        risultato = self._model.ricorsione([], self.maxY, self._maxH, self._nercSel.id)
+
 
     def fillDD(self):
         nercList = self._model.listNerc
